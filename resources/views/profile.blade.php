@@ -16,6 +16,9 @@
                         <a class="btn btn-success float-right" href="{{ route('profile.edit', ['profile_id' => $profile->id,'user_id' => $profile->user->id]) }}">
                             Edit
                         </a>
+                        <a class="btn btn-primary float-right" href="{{ route('profile.upload', ['id' => $profile->id]) }}">
+                            Upload a file
+                        </a>
                     </div>
 
                 </div>

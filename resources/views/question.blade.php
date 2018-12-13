@@ -18,7 +18,8 @@
                         </a>
 
                         {{ Form::open(['method'  => 'DELETE', 'route' => ['questions.destroy', $question->id]])}}
-                        <button class="btn btn-danger float-right mr-2" value="submit" type="submit" id="submit">Delete
+                        <button class="btn btn-danger float-right mr-2" value="submit" type="submit" id="submit">
+                            Delete
                         </button>
                         {!! Form::close() !!}
                     </div>

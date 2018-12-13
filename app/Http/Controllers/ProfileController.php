@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Profile;
 use App\User;
+use Storage;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -119,4 +120,26 @@ class ProfileController extends Controller
     {
         //
     }
+
+    public function upload(Request $request)
+    {
+        if ($request->isMethod('POST')){
+            $file = $request->file('source');
+            if($file->isValid()){
+                $originalname = $file->getClientOriginalName();
+                $ext = $file->getClientOriginalExtension();
+                $type = $file->getClientMimeType();
+                $realPath = $file->getRealPath();
+                $filename = date('Y-m-d-H-i-s') . '-' . uniqid() . '.' . $ext;
+                $bool = Storage::disk('uploads')->put($filename,file_get_contents($realPath));
+                dd($bool);
+            }
+
+            exit;
+        }
+
+        return view('upload');
+    }
+
+
 }
