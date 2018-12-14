@@ -33,6 +33,9 @@ Route::post('/questions/{question_id}/answers/', 'AnswerController@store')->name
 Route::patch('/questions/{question_id}/answer/{answer_id}', 'AnswerController@update')->name('answers.update');
 Route::delete('/questions/{question_id}/answer/{answer_id}', 'AnswerController@destroy')->name('answers.destroy');
 
+Route::any('/questions/{question}/zan', 'QuestionController@zan')->name('questions.zan');
+Route::any('/questions/{question}/unzan', 'QuestionController@unzan')->name('questions.unzan');
+
 Route::any('upload', 'ProfileController@upload')->name('profile.upload');
 
 Route::resources([

@@ -12,6 +12,15 @@
                         {{$question->body}}
                     </div>
                     <div class="card-footer">
+                        <div>
+                            @if($question->zan(\Auth::id())->exists())
+                                <a href="/questions/{{$question->id}}/unzan"  class="btn btn-success float-left">Unlike</a>
+                            @else
+                                <a href="/questions/{{$question->id}}/zan"  class="btn btn-warning float-left">Like</a>
+                            @endif
+
+                        </div>
+
                         <a class="btn btn-primary float-right"
                            href="{{ route('questions.edit',['id'=> $question->id])}}">
                             Edit Question
@@ -48,7 +57,6 @@
                             </div>
                         @empty
                             <div class="card">
-
                                 <div class="card-body"> No Answers</div>
                             </div>
                         @endforelse

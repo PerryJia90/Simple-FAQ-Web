@@ -4,9 +4,10 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Answer extends Model
+class Zan extends Model
 {
-    protected $fillable = ['body'];
+    protected $table = "zans";
+    protected $fillable = ['user_id','question_id'];
 
     public function user()
     {
@@ -16,5 +17,4 @@ class Answer extends Model
     {
         return $this->belongsTo('App\Question');
     }
-
 }

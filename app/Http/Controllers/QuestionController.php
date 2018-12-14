@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Question;
+use App\Zan;
 use Illuminate\Support\Facades\Auth;
 
 class QuestionController extends Controller
@@ -114,5 +115,25 @@ class QuestionController extends Controller
     {
         $question->delete();
         return redirect()->route('home')->with('message', 'Deleted');
+    }
+
+    /*
+     * 点赞
+     */
+    public function zan(Question $question)
+    {
+        $zan = new \App\Zan;
+        $zan->user_id = \Auth::id();
+        $question->zans()->save($zan);
+        return back();
+    }
+
+    /*
+     * 取消点赞
+     */
+    public function unzan(Question $question)
+    {
+        $question->zan(\Auth::id())->delete();
+        return back();
     }
 }
