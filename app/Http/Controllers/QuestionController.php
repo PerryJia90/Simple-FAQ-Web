@@ -21,7 +21,7 @@ class QuestionController extends Controller
      */
     public function index()
     {
-        //
+
     }
 
     /**
@@ -136,4 +136,5 @@ class QuestionController extends Controller
         $question->zan(\Auth::id())->delete();
         return back();
     }
+
 }
