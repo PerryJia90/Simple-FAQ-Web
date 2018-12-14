@@ -163,6 +163,11 @@ return [
         Illuminate\View\ViewServiceProvider::class,
         Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
 
+        Laravel\Scout\ScoutServiceProvider::class,
+        ScoutElastic\ScoutElasticServiceProvider::class,
+        TeamTNT\Scout\TNTSearchScoutServiceProvider::class,
+
+
         /*
          * Package Service Providers...
          */
