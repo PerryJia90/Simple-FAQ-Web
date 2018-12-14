@@ -29,6 +29,8 @@
                                             <div class="card-footer">
                                                 <p class="card-text">
                                                     <p class="blog-post-meta">Like {{$question->zans_count}}</p>
+                                                    <a href="/user/{{$question->user_id}}/profile/{{$question->user_id}}">{{$question->user_id}}</a>
+
                                                     <a class="btn btn-primary float-right" href="{{ route('questions.show', ['id' => $question->id]) }}">
                                                         View
                                                     </a>

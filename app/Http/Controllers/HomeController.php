@@ -25,7 +25,7 @@ class HomeController extends Controller
     public function index()
     {
         $user = Auth::user();
-        $questions = $user->questions()->withcount("zans")->paginate(6);
-        return view('home')->with('questions', $questions);
+        $questions = $user->questions()->orderBy('created_at', 'desc')->withcount("zans")->paginate(6);
+        return view('home',compact('questions'));
     }
 }

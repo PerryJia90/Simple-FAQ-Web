@@ -1,15 +1,10 @@
 <?php
-
 namespace App\Http\Controllers;
-
 use App\Profile;
 use App\User;
-use Storage;
-
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Tests\Unit\profileTest;
-
 class ProfileController extends Controller
 {
     /**
@@ -21,7 +16,6 @@ class ProfileController extends Controller
     {
         //
     }
-
     /**
      * Show the form for creating a new resource.
      *
@@ -33,14 +27,12 @@ class ProfileController extends Controller
         $edit = FALSE;
         return view('profileForm', ['profile' => $profile, 'edit' => $edit]);
     }
-
     /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-
     public function store(Request $request)
     {
         $input = $request->validate([
@@ -58,7 +50,6 @@ class ProfileController extends Controller
         $profile->save();
         return redirect()->route('home')->with('message', 'Profile Created');
     }
-
     /**
      * Display the specified resource.
      *
@@ -71,7 +62,6 @@ class ProfileController extends Controller
         $profile = $user->profile;
         return view('profile')->with('profile', $profile);
     }
-
     /**
      * Show the form for editing the specified resource.
      *
@@ -85,7 +75,6 @@ class ProfileController extends Controller
         $edit = TRUE;
         return view('profileForm', ['profile' => $profile, 'edit' => $edit]);
     }
-
     /**
      * Update the specified resource in storage.
      *
@@ -109,7 +98,6 @@ class ProfileController extends Controller
         $profile->save();
         return redirect()->route('home')->with('message', 'Updated Profile');
     }
-
     /**
      * Remove the specified resource from storage.
      *
@@ -120,26 +108,4 @@ class ProfileController extends Controller
     {
         //
     }
-
-    public function upload(Request $request)
-    {
-        if ($request->isMethod('POST')){
-            $file = $request->file('source');
-            if($file->isValid()){
-                $originalname = $file->getClientOriginalName();
-                $ext = $file->getClientOriginalExtension();
-                $type = $file->getClientMimeType();
-                $realPath = $file->getRealPath();
-                $filename = date('Y-m-d-H-i-s') . '-' . uniqid() . '.' . $ext;
-                $bool = Storage::disk('uploads')->put($filename,file_get_contents($realPath));
-                dd($bool);
-            }
-
-            exit;
-        }
-
-        return view('upload');
-    }
-
-
 }
