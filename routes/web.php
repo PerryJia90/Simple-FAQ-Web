@@ -20,8 +20,8 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 //个人中心
-Route::get('/users/{user}/followings', 'HomeController@followings')->name('Home.followings');
-Route::get('/users/{user}/followers', 'HomeController@followers')->name('Home.followers');
+Route::get('/users/{user}/followings', 'HomeController@followings')->name('home.followings');
+Route::get('/users/{user}/followers', 'HomeController@followers')->name('home.followers');
 
 Route::get('/user/{user_id}/profile', 'ProfileController@create')->name('profile.create');
 Route::get('/user/{user_id}/profile/{profile_id}', 'ProfileController@show')->name('profile.show');

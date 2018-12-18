@@ -56,9 +56,9 @@ class ProfileController extends Controller
      * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($id,$user)
     {
-        $user = Auth::user();
+        $user = User::find($user);
         $profile = $user->profile;
         return view('profile')->with('profile', $profile);
     }

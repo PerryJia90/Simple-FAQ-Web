@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Profile;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\User;
+use App\Question;
 
 class HomeController extends Controller
 {
@@ -26,7 +29,24 @@ class HomeController extends Controller
     {
         $user = Auth::user();
         $questions = $user->questions()->orderBy('created_at', 'desc')->withcount("zans")->paginate(6);
-        return view('home',compact('questions'));
+        return view('home',compact('questions','users'));
+    }
+
+    public function followings(User $user, Profile $profile)
+    {
+        $users = $user->followings()->paginate(60);
+        $title = 'User-' . $user->id .'\'s Following';
+        $profiles = $user->profiles();
+        return view('users.show_follow', ['profiles' => $profiles],compact('users', 'title','profiles'));
+    }
+
+    public function followers(User $user)
+    {
+        $users = $user->followers()->paginate(60);
+        $title = 'User-' . $user->id .'\'s Followers';
+        $profiles = $user->profiles();
+
+        return view('users.show_follow',['profiles' => $profiles], compact('users', 'title','profiles'));
     }
 
 }
