@@ -5,6 +5,7 @@ use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Tests\Unit\profileTest;
+use Storage;
 class ProfileController extends Controller
 {
     /**
@@ -108,4 +109,23 @@ class ProfileController extends Controller
     {
         //
     }
+
+    public function upload(Request $request)
+    {
+        if ($request->isMethod('POST')){
+            $file = $request->file('source');
+            if($file->isValid()){
+                $originalname = $file->getClientOriginalName();
+                $ext = $file->getClientOriginalExtension();
+                $type = $file->getClientMimeType();
+                $realPath = $file->getRealPath();
+                $filename = date('Y-m-d-H-i-s') . '-' . uniqid() . '.' . $ext;
+                $bool = Storage::disk('uploads')->put($filename,file_get_contents($realPath));
+                return back()->with('message', 'file uploaded');
+            }
+            exit;
+        }
+        return view('upload');
+    }
+
 }
