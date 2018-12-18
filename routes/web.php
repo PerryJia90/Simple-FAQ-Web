@@ -19,9 +19,13 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-//个人中心
+//follow page
 Route::get('/users/{user}/followings', 'HomeController@followings')->name('home.followings');
 Route::get('/users/{user}/followers', 'HomeController@followers')->name('home.followers');
+
+//do&undo follow
+Route::post('/users/followers/{user}', 'FollowersController@store')->name('followers.store');
+Route::delete('/users/followers/{user}', 'FollowersController@destroy')->name('followers.destroy');
 
 Route::get('/user/{user_id}/profile', 'ProfileController@create')->name('profile.create');
 Route::get('/user/{user_id}/profile/{profile_id}', 'ProfileController@show')->name('profile.show');

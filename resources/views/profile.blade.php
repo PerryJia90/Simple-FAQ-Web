@@ -22,6 +22,11 @@
                         <span class="font-weight-bold">Body: </span>{{$profile->body}}</br>
                     </div>
                     <div class="card-footer">
+
+                        @if (Auth::check())
+                            @include('users._follow_form')
+                        @endif
+
                         <a class="btn btn-success float-right"
                            href="{{ route('profile.edit', ['profile_id' => $profile->id,'user_id' => $profile->user->id]) }}">
                             Edit

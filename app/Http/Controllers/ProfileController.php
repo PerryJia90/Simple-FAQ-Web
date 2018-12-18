@@ -60,7 +60,7 @@ class ProfileController extends Controller
     {
         $user = User::find($user);
         $profile = $user->profile;
-        return view('profile')->with('profile', $profile);
+        return view('profile',compact('user'))->with('profile', $profile);
     }
     /**
      * Show the form for editing the specified resource.

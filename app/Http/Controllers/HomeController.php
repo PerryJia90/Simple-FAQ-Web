@@ -36,17 +36,14 @@ class HomeController extends Controller
     {
         $users = $user->followings()->paginate(60);
         $title = 'User-' . $user->id .'\'s Following';
-        $profiles = $user->profiles();
-        return view('users.show_follow', ['profiles' => $profiles],compact('users', 'title','profiles'));
+        return view('users.show_follow',compact('users', 'title'));
     }
 
     public function followers(User $user)
     {
         $users = $user->followers()->paginate(60);
         $title = 'User-' . $user->id .'\'s Followers';
-        $profiles = $user->profiles();
-
-        return view('users.show_follow',['profiles' => $profiles], compact('users', 'title','profiles'));
+        return view('users.show_follow',compact('users', 'title'));
     }
 
 }
