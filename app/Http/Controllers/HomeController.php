@@ -28,4 +28,5 @@ class HomeController extends Controller
         $questions = $user->questions()->orderBy('created_at', 'desc')->withcount("zans")->paginate(6);
         return view('home',compact('questions'));
     }
+
 }

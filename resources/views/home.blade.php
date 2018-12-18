@@ -54,6 +54,12 @@
 
                     </div>
                 </div>
+                <aside class="col-md-4">
+                    <section class="stats mt-2">
+                        @include('layouts._stats', ['user' => Auth::user()])
+                    </section>
+                </aside>
             </div>
         </div>
+    </div>
 @endsection
