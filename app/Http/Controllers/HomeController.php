@@ -29,7 +29,7 @@ class HomeController extends Controller
     {
         $user = Auth::user();
         $questions = $user->questions()->orderBy('created_at', 'desc')->withcount("zans")->paginate(6);
-        return view('home',compact('questions','users'));
+        return view('home', compact('questions'));
     }
 
     public function followings(User $user, Profile $profile)
