@@ -10,7 +10,7 @@
  4. As a user I want to check the list of my followings so that I can know whom I have followed.
  5. As a user I want to check the number of my followers so that I can know how many people have followed me and who are they.
  6. As a user I want to check the list of my followers so that I can know who have followed me.
- 
+</p> 
 # Epic 2 : like questions
 
 <h3> ·user stories:
