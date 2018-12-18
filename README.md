@@ -3,7 +3,7 @@
 # Epic 1 : Follow Users
     
 <h3> ·user stories:
-    
+<p>    
  1. As a user I want to follow an anther user so that I can find his/her profile easily.
  2. As a user I want to unfollow a following user so that I can avoid seeing his/her profile.
  3. As a user I want to check the number of my following users so that I can know how many people I have followed.
