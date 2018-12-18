@@ -19,7 +19,7 @@ class Question extends Model
     }
 
     /*
-     * 点赞
+     * like a question
      */
     public function zans()
     {
@@ -27,7 +27,7 @@ class Question extends Model
     }
 
     /*
-     * 判断一个用户是否已经给这篇文章点赞了
+     * Determine whether a user has already liked this question
      */
     public function zan($user_id)
     {
