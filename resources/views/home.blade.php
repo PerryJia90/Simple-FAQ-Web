@@ -38,9 +38,18 @@
                                             <div class="card-footer">
                                                 <p class="card-text">
                                                 <p class="blog-post-meta">Like: {{$question->zans_count}}</p>
+
+                                                @if (Auth::user()->profile)
                                                 <p>Created by
                                                     <a href="/user/{{$question->user_id}}/profile/{{$question->user_id}}">User-{{$question->user_id}}</a>
                                                 </p>
+                                                @else
+                                                    <p>Created by
+                                                        <a href="#">User-{{$question->user_id}}</a>
+                                                        <br>
+                                                        (No profile is available yet)
+                                                    </p>
+                                                @endif
 
                                                 <a class="btn btn-primary float-right"
                                                    href="{{ route('questions.show', ['id' => $question->id]) }}">
@@ -68,7 +77,7 @@
                 <div class="py-4 col-md-12">
                     <div class="card">
                         <div class="card-header">
-                            Users in the system
+                            Registered users
                         </div>
                         <div class="card-body">
                             <div class="card-deck">
