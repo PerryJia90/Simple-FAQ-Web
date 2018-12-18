@@ -1,6 +1,6 @@
-# faq
 
-# Epic 1 : Follow Users
+
+# Epic 1 : Follow users
     
 <h3> ·user stories:
     
@@ -11,7 +11,7 @@
 <h5>5. As a user I want to check the number of my followers so that I can know how many people have followed me and who are they.
 <h5>6. As a user I want to check the list of my followers so that I can know who have followed me.
     
-# Epic 2 : like questions
+# Epic 2 : Like questions
 
 <h3> ·user stories:
     
@@ -19,7 +19,7 @@
  <h5>2. As a user I want to like a question so that I can mark which question I liked
  <h5>3. As a user I want to unlike a question so that I can cancel the like to this question before.
  
- # Epic 3 : upload a file
+ # Epic 3 : Upload a file
  
  <h3> ·user stories:
     
