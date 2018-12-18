@@ -1,9 +1,15 @@
 @extends('layouts.app')
 
 @section('content')
+
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-12">
+            <aside class="col-md-4">
+                <section class="stats mt-2">
+                    @include('layouts._stats', ['user' => Auth::user()])
+                </section>
+            </aside>
+            <div class="py-4 col-md-12">
                 <div class="card">
                     <div class="card-header">Questions
                         <a class="btn btn-primary float-right" href="{{ route('questions.create') }}">
@@ -28,8 +34,10 @@
                                             </div>
                                             <div class="card-footer">
                                                 <p class="card-text">
-                                                    <p class="blog-post-meta">Like {{$question->zans_count}}</p>
-                                                    <a href="/user/{{$question->user_id}}/profile/{{$question->user_id}}">{{$question->user_id}}</a>
+                                                    <p class="blog-post-meta">Like: {{$question->zans_count}}</p>
+                                                    <p>Created by
+                                                        <a href="/user/{{$question->user_id}}/profile/{{$question->user_id}}">User-{{$question->user_id}}</a>
+                                                    </p>
 
                                                     <a class="btn btn-primary float-right" href="{{ route('questions.show', ['id' => $question->id]) }}">
                                                         View
@@ -54,11 +62,7 @@
 
                     </div>
                 </div>
-                <aside class="col-md-4">
-                    <section class="stats mt-2">
-                        @include('layouts._stats', ['user' => Auth::user()])
-                    </section>
-                </aside>
+
             </div>
         </div>
     </div>

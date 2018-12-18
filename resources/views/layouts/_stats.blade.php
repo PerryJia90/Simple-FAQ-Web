@@ -1,18 +1,22 @@
+<div class="py-1 text-center">
+
+
 <a href="{{ route('home.followings', $user->id) }}">
-    <strong id="following" class="stat">
+    <strong id="following" class="stat ml-2">
         {{ count($user->followings) }}
     </strong>
-    关注
+    Following
 </a>
 <a href="{{ route('home.followers', $user->id) }}">
-    <strong id="followers" class="stat">
+    <strong id="followers" class="stat ml-2">
         {{ count($user->followers) }}
     </strong>
-    粉丝
+    Followers
 </a>
 <a href="{{ route('home', $user->id) }}">
-    <strong id="questions" class="stat">
+    <strong id="questions" class="stat ml-2">
         {{ $user->questions()->count() }}
     </strong>
-    问题
+    Questions
 </a>
+</div>

@@ -7,12 +7,9 @@
                 <div class="card">
                     <div class="card-header">
                         <div class="col-sm-8">
-                            <blockquote>
-                                <p><img src="http://img.zcool.cn/community/01da6f59a01a97a801211d254c8a41.jpg@2o.jpg"
-                                        alt="" class="img-rounded"
-                                        style="border-radius:500px; height: 40px"> {{$profile->fname}} {{$profile->lname}}
-                                </p>
-                            </blockquote>
+                            @if (Auth::check())
+                                @include('users._follow_form')
+                            @endif
                         </div>
                     </div>
 
@@ -23,15 +20,11 @@
                     </div>
                     <div class="card-footer">
 
-                        @if (Auth::check())
-                            @include('users._follow_form')
-                        @endif
-
                         <a class="btn btn-success float-right"
                            href="{{ route('profile.edit', ['profile_id' => $profile->id,'user_id' => $profile->user->id]) }}">
                             Edit
                         </a>
-                        <a class="btn btn-primary float-right"
+                        <a class="btn btn-primary float-right mr-2"
                            href="{{ route('profile.upload', ['id' => $profile->id]) }}">
                             Upload a file
                         </a>

@@ -14,7 +14,7 @@
                     </a>
                 </div>
             @endforeach
-
         </div>
+
     </div>
 @stop
