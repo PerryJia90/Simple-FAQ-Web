@@ -41,6 +41,7 @@
                             </a>
                         </div>
 
+                        @if (Auth::user()->id == $user->id)
                         <a class="btn btn-success float-right"
                            href="{{ route('profile.edit', ['profile_id' => $profile->id,'user_id' => $profile->user->id]) }}">
                             Edit
@@ -49,6 +50,7 @@
                            href="{{ route('profile.upload', ['id' => $profile->id]) }}">
                             Upload a file
                         </a>
+                        @endif
                     </div>
 
                 </div>
