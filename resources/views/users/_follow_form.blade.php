@@ -1,11 +1,11 @@
-<div class="mt-2 mb-4">
+<div class="mt-2 mb-2">
     <blockquote>
         <p><img src="http://pic.51yuansu.com/pic3/cover/02/95/53/5acdc29a0b40b_610.jpg"
                 alt="" class="img-rounded"
                 style="border-radius:500px; height: 40px"> {{$profile->fname}} {{$profile->lname}}
         </p>
     </blockquote>
-</div>
+
 
 @if (Auth::user()->id != $user->id)
     <div class="mt-2 mb-4">
@@ -25,3 +25,4 @@
 @else
         <button type="submit" class="btn btn-sm">Myself</button>
 @endif
+</div>

@@ -9,9 +9,14 @@
             Click to check profile
             @foreach ($users as $user)
                 <div class="list-group-item">
-                    <a href="/user/{{$user->id}}/profile/{{$user->id}}">
-                        User-{{$user->id}}
-                    </a>
+                    @if ($user->profile)
+                        <a href="/user/{{$user->id}}/profile/{{$user->id}}">
+                            User-{{$user->id}}
+                            {{$user->profile->fname}} {{$user->profile->lname}}
+                        </a>
+                    @else
+                        <p>User-{{$user->id}}(No profile is available yet)</p>
+                    @endif
                 </div>
             @endforeach
         </div>

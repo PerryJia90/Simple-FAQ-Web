@@ -20,6 +20,27 @@
                     </div>
                     <div class="card-footer">
 
+                        <div class="mt-2 mb-2 float-left">
+                            <a href="{{ route('home.followings', $user->id) }}">
+                                <strong id="following" class="stat ml-2">
+                                    {{ count($user->followings) }}
+                                </strong>
+                                Following
+                            </a>
+                            <a href="{{ route('home.followers', $user->id) }}">
+                                <strong id="followers" class="stat ml-2">
+                                    {{ count($user->followers) }}
+                                </strong>
+                                Followers
+                            </a>
+                            <a href="#">
+                                <strong id="questions" class="stat ml-2">
+                                    {{ $user->questions()->count() }}
+                                </strong>
+                                Questions
+                            </a>
+                        </div>
+
                         <a class="btn btn-success float-right"
                            href="{{ route('profile.edit', ['profile_id' => $profile->id,'user_id' => $profile->user->id]) }}">
                             Edit
