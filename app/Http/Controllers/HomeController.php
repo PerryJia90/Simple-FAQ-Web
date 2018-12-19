@@ -30,7 +30,9 @@ class HomeController extends Controller
         $user = Auth::user();
         $users = User::all();
         $questions = $user->questions()->orderBy('created_at', 'desc')->withcount("zans")->paginate(6);
-        return view('home',compact('questions','users'));
+        $profile = $user->profile;
+        $profiles = $user->profile();
+        return view('home',compact('questions','users','profile','profiles'));
     }
 
 

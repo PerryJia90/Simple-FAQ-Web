@@ -41,7 +41,7 @@
 
                                                 @if (Auth::user()->profile)
                                                 <p>Created by
-                                                    <a href="/user/{{$question->user_id}}/profile/{{$question->user_id}}">User-{{$question->user_id}}</a>
+                                                    <a href="/user/{{$question->user_id}}/profile/{{$question->user_id}}">{{$profile->fname}} {{$profile->lname}}</a>
                                                 </p>
                                                 @else
                                                     <p>Created by
@@ -82,17 +82,23 @@
                         <div class="card-body">
                             <div class="card-deck">
                                 @foreach ($users as $user)
-                                    <div class="col-sm-2 d-flex align-items-stretch text-center">
-
+                                    <div class="col-sm-3 d-flex align-items-stretch text-center">
                                         <div class="card mb-1">
                                             <div class="card-body">
+                                                @if ($user->profile)
                                                 <a href="/user/{{$user->id}}/profile/{{$user->id}}">
                                                     User-{{$user->id}}
+                                                    <br>
+                                                    {{$user->profile->fname}} {{$user->profile->lname}}
                                                 </a>
+                                                @else
+                                                    <p>User-{{$user->id}}</p>
+                                                @endif
                                             </div>
                                         </div>
                                     </div>
                                 @endforeach
+
                             </div>
                         </div>
                     </div>
