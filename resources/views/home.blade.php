@@ -40,9 +40,9 @@
                                                 <p class="blog-post-meta">Like: {{$question->zans_count}}</p>
 
                                                 @if (Auth::user()->profile)
-                                                <p>Created by
-                                                    <a href="/user/{{$question->user_id}}/profile/{{$question->user_id}}">{{$profile->fname}} {{$profile->lname}}</a>
-                                                </p>
+                                                    <p>Created by
+                                                        <a href="/user/{{$question->user_id}}/profile/{{$question->user_id}}">{{$profile->fname}} {{$profile->lname}}</a>
+                                                    </p>
                                                 @else
                                                     <p>Created by
                                                         <a href="#">User-{{$question->user_id}}</a>
@@ -86,19 +86,18 @@
                                         <div class="card mb-1">
                                             <div class="card-body">
                                                 @if ($user->profile)
-                                                <a href="/user/{{$user->id}}/profile/{{$user->id}}">
-                                                    User-{{$user->id}}
-                                                    <br>
-                                                    {{$user->profile->fname}} {{$user->profile->lname}}
-                                                </a>
+                                                    <a href="/user/{{$user->id}}/profile/{{$user->id}}">
+                                                        User-{{$user->id}}
+                                                        <br>
+                                                        {{$user->profile->fname}} {{$user->profile->lname}}
+                                                    </a>
                                                 @else
-                                                    <p>User-{{$user->id}}</p>
+                                                    <p>User-{{$user->id}}(No profile is available yet)</p>
                                                 @endif
                                             </div>
                                         </div>
                                     </div>
                                 @endforeach
-
                             </div>
                         </div>
                     </div>

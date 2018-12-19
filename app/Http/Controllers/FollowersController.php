@@ -17,7 +17,6 @@ class FollowersController extends Controller
 
     public function store(User $user,Profile $profile)
     {
-
         if ( ! Auth::user()->isFollowing($user->id)) {
             Auth::user()->follow($user->id);
         }
@@ -27,7 +26,6 @@ class FollowersController extends Controller
 
     public function destroy(User $user,Profile $profile)
     {
-
         if (Auth::user()->isFollowing($user->id)) {
             Auth::user()->unfollow($user->id);
         }

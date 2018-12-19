@@ -35,7 +35,6 @@ class HomeController extends Controller
         return view('home',compact('questions','users','profile','profiles'));
     }
 
-
     public function followings(User $user, Profile $profile)
     {
         $users = $user->followings()->paginate(60);
