@@ -82,7 +82,7 @@
                         <div class="card-body">
                             <div class="card-deck">
                                 @foreach ($users as $user)
-                                    <div class="col-sm-3 d-flex align-items-stretch text-center">
+                                    <div class="col-3 d-flex align-items-stretch text-center">
                                         <div class="card mb-1">
                                             <div class="card-body">
                                                 @if ($user->profile)
