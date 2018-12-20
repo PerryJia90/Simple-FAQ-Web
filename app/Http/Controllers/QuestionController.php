@@ -118,7 +118,7 @@ class QuestionController extends Controller
     }
 
     /*
-     * 点赞
+     * Like
      */
     public function zan(Question $question)
     {
@@ -129,7 +129,7 @@ class QuestionController extends Controller
     }
 
     /*
-     * 取消点赞
+     * UnLike
      */
     public function unzan(Question $question)
     {

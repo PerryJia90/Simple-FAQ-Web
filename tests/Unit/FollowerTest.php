@@ -15,11 +15,10 @@ class FollowerTest extends TestCase
      *
      * @return void
      */
-    use RefreshDatabase;
+    //use RefreshDatabase;
 
     public function testFollow()
     {
-
 
         //generate 10 new users
         for ($i = 1; $i <= 10; $i ++) {
@@ -57,23 +56,5 @@ class FollowerTest extends TestCase
         //test whether user_1 follows other users
         $this->assertTrue($user->isFollowing($follower));
 
-        /*
-         * test unfollow
-
-        // let user_1 unfollow the other users
-        $user->unfollow($follower_ids);
-
-        // let the other users unollow use_1
-        foreach ($followers as $follower) {
-            $follower->unfollow($user_id);
-        }
-
-        //test whether the other users are followers of user_1
-        $this->assertTrue($follower->isFollowing($user->id));
-
-        //test whether user_1 unfollows other users
-        $this->assertFalse($user->isFollowing($follower));
-
-        */
     }
 }
