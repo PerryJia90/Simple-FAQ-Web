@@ -28,7 +28,8 @@
  
 <h3> *user stories:
 
-<h5>As a user I want to upload a file(photo) to my profile so that I can improve my profile
+<h5>As a user I want to upload a file(photo) to my profile so that I can improve my profile.
+    
     (I was adding this feature --Upload a file--for fun as I saw a classmate was working on it and I thought it was cool so I ask her to teach me. So our code is same in this feature. I just want to learn more after I finished my own features. Could you please don't count that in grade?)
  
  
